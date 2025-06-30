@@ -12,17 +12,17 @@ class Usuario_controller extends Controller{
 	$data['titulo']='Registro';
         echo view('front/head_view',$data);
         echo view('front/nav_view', $data);
-        echo view('front/registro', $data);
+        echo view('back/usuario/registro', $data);
         echo view('front/footer_view', $data);
 	}
 
 	public function formValidation(){
 		$input = $this->validate([
-			'nombre' => 'required|min_length[3]',
-			'apellido' => 'required|min_length[3]|max_length[25]',
-			'usuario'=> 'required|min_length[3]',
-			'email'    => 'required|min_length[4]|max_length[100]|valid_email|is_unique[usuarios.email]',
-			'pass'=> 'required|min_length[3]|max_length[10]',
+            'nombre' => 'required|min_length[3]|max_length[25]',
+            'apellido' => 'required|min_length[3]|max_length[25]',
+            'email' => 'required|min_length[4]|max_length[100]|valid_email|is_unique[usuarios.email]',
+            'usuario' => 'required|min_length[3]|max_length[25]',
+            'pass' => 'required|min_length[6]|'
 		],
         );
 	
@@ -31,7 +31,7 @@ class Usuario_controller extends Controller{
 			$data['titulo']='Registro';
 			echo view ('front/head_view', $data);
 			echo view ('front/nav_view');
-			echo view ('front/registro', ['validation' => $this->validator]);
+			echo view ('back/usuario/registro', ['validation' => $this->validator]);
 			echo view ('front/footer_view');
 
 		} else {
@@ -43,7 +43,12 @@ class Usuario_controller extends Controller{
 				'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT)	
 			]);
 			session()->setFlashdata('success', 'Usuario registrado con exito');
-			return $this->response->redirect(base_url('/registro'));
+			return $this->response->redirect(base_url('/login'));
 		}
+	}
+
+	public function logout(){
+		session()->destroy(); 
+		return redirect()->to(base_url('inicio'));
 	}
 }
