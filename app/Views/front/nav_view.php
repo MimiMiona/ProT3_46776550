@@ -17,22 +17,29 @@
                 </button> 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+                        <?php if (session('perfil_id') != 1): ?>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?= base_url('acerca_de') ?>">Acerca de</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active nav_color" href="<?= base_url('quienes_somos') ?>">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active nav_color" href="<?= base_url('registro') ?>">Registro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active nav_color" href="<?= base_url('login') ?>">Login</a>
-                        </li>
+                                <a class="nav-link active" href="<?= base_url('acerca_de') ?>">Acerca de</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active nav_color" href="<?= base_url('quienes_somos') ?>">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active nav_color" href="<?= base_url('registro') ?>">Registro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active nav_color" href="<?= base_url('login') ?>">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active nav_color" href="<?= base_url('/logout') ?>">Cerrar sesión</a>
+                            </li>
+                        <?php endif; ?>
                         <?php if (session('perfil_id') == 1): ?>
                             <li class="nav-item">
-                                <a class="nav-link active" href="<?= base_url('/vista') ?>">CRUD Usuarios</a>
+                                <a class="nav-link active" href="<?= base_url('/vista') ?>">Crud Usuarios</a>
+                            <li>
+                            <li class="nav-item">
+                                <a class="nav-link active nav_color" href="<?= base_url('/logout') ?>">Cerrar sesión</a>
                             </li>
                         <?php endif; ?>
                     </ul>
@@ -42,28 +49,15 @@
                                 <li><a class="dropdown-item"href="<?= base_url('registro') ?>">Registro</a></li>
                                 <li><a class="dropdown-item"href="<?= base_url('login') ?>">Login</a></li>
                                 <li><a class="dropdown-item" href="<?= base_url('datos_personales') ?>">Datos Personales</a></li>
-                                <?php if (session('perfil_id') == 2): ?>
-                                    <li><a class="dropdown-item"href="<?= base_url('ver_factura_usuario/' . session()->get('id_usuario')) ?>">Mis Compras</a></li>
-                                <?php endif; ?>
                                 <?php if (in_array(session('perfil_id'), [1, 2])): ?>
-                                    <li><a class="dropdown-item" href="<?= base_url('/logout') ?>">Cerrar sesión</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="<?= base_url('/logout') ?>">Cerrar sesión</a>
+                                    </li>
                                 <?php endif; ?>
                             </li>
                             </ul>
-                            <a class="nav-link dropdown-toggle active" href="#" id="perfilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="<?= base_url('assets/img/perfil.jpg') ?>" alt="Ayuda" width="67" height="67" class="rounded-circle">
-                            </a>
                         </li>
                     </ul>
-                    <?php if (session('perfil_id') == 2): ?>
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('/muestro') ?>">
-                                    <img src="<?= base_url('assets/img/carrito.png') ?>" alt="Carrito" width="67" height="67" class="rounded-circle">
-                                </a>
-                            </li>
-                        </ul>
-                    <?php endif; ?>
                 </div>
             </div>
         </nav>

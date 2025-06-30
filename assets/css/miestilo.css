@@ -159,3 +159,21 @@ section {
     margin: 0 10px;
     vertical-align: middle;
 }
+
+.custom-register-card {
+    background-color: #bc9acf; 
+    color: #000000;
+    border: 1px solid #bc9acf;
+    border-radius: 10px;
+}
+
+table.custom-table thead tr > th {
+    background-color: #bc9acf !important;
+    color: white !important;
+    box-shadow: none !important ;
+}
+
+table.custom-table tbody tr > td{
+    background-color: #bc9acf !important;
+    box-shadow: none !important;
+}
