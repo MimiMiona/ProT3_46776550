@@ -1,5 +1,5 @@
     <div class="container mt-1 mb-0">
-        <div class="card" style="width: 50%;" >
+        <div class="card custom-register-card mx-auto" style="width: 50%;">
             <div class="card-header text-center">
                 <h5>Alta de Usuarios</h5>
                 <?php $validation = \Config\Services::validation(); ?>
@@ -32,10 +32,11 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">email</label>
                             <input name="email" type="femail" class="form-control" placeholder="correo@algo.com" > <!-- Error -->
-                            <?php $error = $validation->getError('email'); ?>
-                            <div class='alert alert-danger mt-2'>
-                                <?= $error ?>
-                            </div>
+                            <?php if($validation->getError('email')){?>
+                                <div class='alert alert-danger mt-2'>
+                                    <?= $error = $validation->getError('email'); ?>
+                                </div>
+                            <?php } ?>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Usuario</label>
