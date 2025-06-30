@@ -1,3 +1,4 @@
+<?php if (session('perfil_id') == 2): ?>
 <section class="container py-5" style="max-width: 1200px; margin: 0 auto; padding: 20px;">  
     <div class="mb-5 text-center">
         <h1 class="display-4">🧁 Bienvenido <?= session('nombre'); ?> a Dulces Caprichos</h1>
@@ -52,12 +53,15 @@
         </div>
     </div>
     </section>
+<?php endif; ?>
 <?php if (session('perfil_id') == 1): ?>
-<section class="container py-5"> 
-    <div class="mb-5 text-center">
-        <h1 class="display-4">📽️ Bienvenido Admin <?= session('nombre'); ?> 📽️</h1>
-        <p class="lead">Tu rincón para descubrir y disfrutar del cine clásico en dominio público.</p>
-        <h1>Enlaces Útiles</h1>
+<section class="container py-5" style="max-width: 1200px; margin: 0 auto; padding: 20px;">  
+<div class="mb-5 text-center">
+    <h1 class="display-4">🧁 Bienvenido Admin <?= session('nombre'); ?> a Dulces Caprichos</h1>
+    <p class="lead">Tu rincón para degustar los mejores cupcakes</p>
+    <div class="text-center">
+        <img src="<?= base_url('assets/img/feliz2.jpg') ?>" alt="Vainilla" class="img-fluid">
     </div>
-<section>
+</div>
+</section>
 <?php endif; ?>
