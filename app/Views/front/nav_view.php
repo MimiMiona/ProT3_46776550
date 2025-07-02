@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
             <div class="container-fluid">
                 <?php if (session('perfil_id') != 1): ?>
-                    <a class="nav-link active" aria-current="page" href="<?= base_url('inicio') ?>">
+                    <a class="nav-link active" aria-current="page" href="<?= base_url('principal') ?>">
                         <img src="<?= base_url('assets/img/logo.png') ?>" alt="Logo" width="77" height="77" class="img-fluid">
                     </a>
                 <?php endif; ?>
@@ -30,6 +30,8 @@
                             <li class="nav-item">
                                 <a class="nav-link active nav_color" href="<?= base_url('login') ?>">Login</a>
                             </li>
+                        <?php endif; ?>
+                        <?php if (session('perfil_id') == 2): ?>
                             <li class="nav-item">
                                 <a class="nav-link active nav_color" href="<?= base_url('/logout') ?>">Cerrar sesión</a>
                             </li>

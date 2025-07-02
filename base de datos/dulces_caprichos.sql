@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2025 a las 18:11:33
+-- Tiempo de generación: 02-07-2025 a las 02:28:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -58,6 +58,20 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `email`, `pass`, `perfil_id`, `baja`) VALUES
+(1, 'Jose', 'Gomez', 'Jose123', 'jose123@gmail.com', '$2y$10$bczCjVBtKNxXhGnNHShbMuDP2Tc/76Zmzzq06yxP9I.2hMXyAHuvS', 1, 'NO'),
+(2, 'Victoria', 'Gon', 'vicky123', 'victoria124@gmail.com', '$2y$10$fR/oFkTXnVhDaw0MnEErseZhasbnAASXfDOE5raZ0THCcSrYV/AGO', 1, 'NO'),
+(3, 'Sofia', 'Gomez', 'sofi1222', 'sofiasos@gmail.com', '$2y$10$L8OJZQW/OzVSws.x/YLOfeWpW.XAcMIJMQD0Baydmh611m/6.BrzS', 2, 'NO'),
+(4, 'Ramona', 'Perez', 'ramona1233', 'ramonaperez@gmail.com', '$2y$10$Way3MuA1w.61izslM9OHkeiv/gdww15pw2ueTQOd.hfKKVIwRglRC', 2, 'NO'),
+(5, 'Maria', 'Gonzalez', 'mari1222', 'maria123@gmail.com', '$2y$10$1jEF9nBMap/Yw1y6NID46uxO.hCQKNR2vh5xl0WW1ITtheMVvGgkq', 2, 'NO'),
+(6, 'Sabrina', 'Ramirez', 'sabri333', 'sabrina123@gmail.com', '$2y$10$TrW4Xy.Jcqko0Ab9jZCuDuSwrt4f5aPAn6GBNinawTEu6pPbz1/gO', 1, 'NO'),
+(7, 'Lourdes', 'Torres', 'lourdes123', 'lourdes123@gmail.com', '$2y$10$aHQR6lJJ2PYkeFTN3y8ZfOaXWDreo.gnmynwkMLtyZiJFOvJojZXW', 2, 'NO'),
+(8, 'Juan', 'Torres', 'juan222', 'juan222@gmail.com', '$2y$10$btitSpoxsrBP7PZ9AYJDKO7ALe.XjoKhne1WP3A.CMjJHEUmUuZ1C', 2, 'NO');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -72,7 +86,7 @@ ALTER TABLE `perfiles`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `perfil_id` (`perfil_id`);
+  ADD KEY `usuarios_ibfk_1` (`perfil_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -88,7 +102,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
